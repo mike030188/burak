@@ -3,6 +3,45 @@
 import dotenv from "dotenv"; // const dotenv = require ( 'dotenv'); (*commonjs sample FYI:)
 dotenv.config();
 
+import mongoose from "mongoose";
+
+// *** connection to DB via Mongoose ***
+mongoose
+    .connect(process.env.MONGO_URL as string, {})
+    .then((data) => {
+        console.log("MongoDB connection succeed");
+        const PORT = process.env.PORT ?? 3003; // agar PORTni topolmasa 3003ga ulan
+    })
+    .catch((err) => console.log("ERROR on connection MongoDB", err));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // //** PORT ni tekwiriw */
 // console.log("PORT:", process.env.PORT);
 
