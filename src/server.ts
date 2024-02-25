@@ -2,8 +2,8 @@
 
 import dotenv from "dotenv"; // const dotenv = require ( 'dotenv'); (*commonjs sample FYI:)
 dotenv.config();
-
 import mongoose from "mongoose";
+import app from "./app";
 
 // *** connection to DB via Mongoose ***
 mongoose
@@ -11,6 +11,9 @@ mongoose
     .then((data) => {
         console.log("MongoDB connection succeed");
         const PORT = process.env.PORT ?? 3003; // agar PORTni topolmasa 3003ga ulan
+        app.listen(PORT, function () {
+            console.log(`The server is running successfully on port: ${PORT}`);
+        })
     })
     .catch((err) => console.log("ERROR on connection MongoDB", err));
 
