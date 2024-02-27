@@ -1,5 +1,6 @@
 import express from "express";
 import path from "path";
+import router from "./router";
 
 /* 1-ENTRANCE */
 const app = express();
@@ -16,6 +17,7 @@ app.set("views", path.join(__dirname, "views")); // create folder "views" in src
 app.set("view engine", "ejs"); // npm i ejs@3.1.6
 
 /* 4-ROUTERS */
+app.use("/", router);  // Middleware Design pattern
 
 // "ES2020" orqali
 export default app;
