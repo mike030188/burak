@@ -5,7 +5,7 @@ console.log("Hello World");
   - Naming standards:
       function, method, variable => CAMEL     
       class => PASCAL             MemberService        
-      folder => KEBAB             
+      folder, file => KEBAB             
       css => SNAKE                button_style         
   - Error handling
   
