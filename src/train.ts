@@ -18,6 +18,14 @@ console.log("Hello World");
   ...
 */
 
+/** FrontEnd quriwning 2xil usuli: 
+ 
+ * - Traditional FD  => BSSR (adminka) => EJS
+ * - Modern FD       => SPA  (users`)  => REACT libr.
+ 
+ * **/ 
+
+
 
 // *** I - TASK ***
 // Shunday function tuzing, unga string argument pass bolsin.

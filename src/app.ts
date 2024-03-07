@@ -22,8 +22,8 @@ app.set("view engine", "ejs"); // npm i ejs@3.1.6
 
 /* 4-ROUTERS */
 /*** Middleware Design pattern ***/
-app.use("/admin", routerAdmin);  // EJS => Burak akamiz un maxsus route
-app.use("/", router);  // REACT => haridorlar un qilingan route
+app.use("/admin", routerAdmin);  // BSSR(EJS) => Burak akamiz un maxsus route
+app.use("/", router);  // SPA(REACT) => haridorlar un qilingan route
 
 
 // "ES2020" orqali

@@ -7,6 +7,7 @@ import restaurantController from "./controllers/restaurant.controller";
 /** Restaurant */
 routerAdmin.get("/", restaurantController.goHome);
 routerAdmin
+// API method (.get)=> "N point" login, u controllerga yuboryapti, hamda "getLogin"methodini iwga tuwiryapti
   .get("/login", restaurantController.getLogin)
   .post("/login", restaurantController.processLogin);
 routerAdmin
