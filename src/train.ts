@@ -25,29 +25,52 @@ console.log("Hello World");
  
  * **/ 
 
+// *** J - TASK ***
+// Shunday function yozing, u string qabul qilsin va string ichidagi eng
+// uzun sozni qaytarsin.
+// MASALAN: findLongestWord("I come from Uzbekistan") return "Uzbekistan"
 
+function findLongestWord(text: string) {
 
-// *** I - TASK ***
-// Shunday function tuzing, unga string argument pass bolsin.
-// Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
-// MASALAN: getDigits("m14i1t") return qiladi "141"
- function getDigits(str: string) {
-      
-  const digitMatches = str.match(/\d/g);  // Regex syntax in JavaScript "/\d" matches a decimal digit character (i.e. 0-9). "g" - globally
+  const Text = text.split(" ");      // natija: [ 'I', 'come', 'from', 'Uzbekistan' ]
+  let longest = "";                  // empty string hosil qivolyapmiz
 
-  // Berilgan string ichidan raqamlar bor yoqligini check qilamiz
-  if (digitMatches) {
-    //  
-    return digitMatches.join('');
-  } else {
-    // Agar raqam topolmasang, return 0
-    return 0;
+  // for-loop ni iteration methodini iwga tuwiramiz
+  for (let i = 0; i < Text.length; i++) {
+
+    // agar "i"ning uzunligi longest text.ning uzunligidan katta bolsa "i"ni longestga tenglab olyapmiz 
+    if(Text[i].length > longest.length) {
+      longest = Text[i];
+    }
   }
+  return longest;
 }
+
+console.log(findLongestWord("I come from Uzbekistan"));
+
+
+
+// // *** I - TASK ***
+// // Shunday function tuzing, unga string argument pass bolsin.
+// // Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
+// // MASALAN: getDigits("m14i1t") return qiladi "141"
+//  function getDigits(str: string) {
+      
+//   const digitMatches = str.match(/\d/g);  // Regex syntax in JavaScript "/\d" matches a decimal digit character (i.e. 0-9). "g" - globally
+
+//   // Berilgan string ichidan raqamlar bor yoqligini check qilamiz
+//   if (digitMatches) {
+//     //  
+//     return digitMatches.join('');
+//   } else {
+//     // Agar raqam topolmasang, return 0
+//     return 0;
+//   }
+// }
     
-  const str = "m14i1t";
-  const onlyNumbers = getDigits(str);
-  console.log(`natija: ${onlyNumbers}`);
+//   const str = "m14i1t";
+//   const onlyNumbers = getDigits(str);
+//   console.log(`natija: ${onlyNumbers}`);
 
 
 
