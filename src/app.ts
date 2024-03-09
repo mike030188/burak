@@ -5,15 +5,38 @@ import morgan from "morgan";
 import { MORGAN_FORMAT } from "./libs/config";
 import router from "./router";
 
+import session from "express-session";
+import ConnectMongoDB from "connect-mongodb-session";
+
+const MongoDBStore = ConnectMongoDB(session);
+/** below codes coming from Documentation_connect-mongodb-session **/
+const store = new MongoDBStore({
+    uri: String(process.env.MONGO_URL),
+    collection: "sessions", // it creates new collection in our mongoDB with name "sessions" 
+});
+
 /* 1-ENTRANCE */
-const app = express();
+const app = express(); // It creates an instance of the Express and equal const app
 // console.log("__dirname:", __dirname); // __dirname: C:\Users\pc\Desktop\MIT-9\burak\src
 app.use(express.static(path.join(__dirname, "public")));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(morgan(MORGAN_FORMAT));
+app.use(express.urlencoded({ extended: true })); // This line configures Express to parse incoming requests with URL-encoded payloads
+app.use(express.json()); // This is commonly used for processing data from AJAX requests or APIs.
+app.use(morgan(MORGAN_FORMAT)); // Morgan is a logging middleware incoming requests, such as the HTTP method, URL, status code, response time, etc.
 
 /* 2-SESSIONS */
+// Sessionlarni Web Server bn integratsiya jarayoni...Documentation
+app.use(
+    session({
+        secret: String(process.env.SESSION_SECRET), // NOTE: secret code creates by ourself, except "#" symbol
+        cookie: {
+            maxAge: 1000 * 3600 * 3, // cookies` lifetime (f.e: 3h) here
+        },
+        store: store, // yuqorida 13-satrda korsatilgan
+        resave: true, // 10:30 da auth => 13:30 gacha session saqlanadi, "true" holatida 12:00 => 15:00 gacha valid hisob, "false" => 12:00 => 13:30 da bekiladi  
+        saveUninitialized: true,
+    })
+);
+
 
 
 /* 3-VIEWS */

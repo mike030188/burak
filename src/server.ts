@@ -1,5 +1,5 @@
 // burak lohiyamizda packagelarni "ES2020" orqali chaqiramiz:
-
+// server iwga tuwyapti, "dotenv"dan "env-variable"lar yuklanyapti
 import dotenv from "dotenv"; // const dotenv = require ( 'dotenv'); (*commonjs sample FYI:)
 dotenv.config();
 import mongoose from "mongoose";

@@ -7,7 +7,7 @@ import { MemberType } from "../libs/enums/member.enum";
 const memberService = new MemberService();
 
 
-// EJS for Burak akamiz un
+// SSR (EJS) for Burak akamiz un
 
 const restaurantController: T = {};
 restaurantController.goHome = (req: Request, res:Response) => {
@@ -79,5 +79,5 @@ restaurantController.processLogin = async (req: Request, res: Response) => {
   
 
 
-// "ES2020" orqali
+// NOTE: "ES2020" orqali
 export default restaurantController;
