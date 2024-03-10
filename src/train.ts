@@ -33,28 +33,47 @@ console.log("Hello World");
   - self destroy
 */
 
-// *** J - TASK ***
-// Shunday function yozing, u string qabul qilsin va string ichidagi eng
-// uzun sozni qaytarsin.
-// MASALAN: findLongestWord("I come from Uzbekistan") return "Uzbekistan"
+// *** K - TASK ***
+// Shunday function yozing, u string qabul qilsin va string ichidagi unli 
+// harflar sonini qaytarsin.
+// MASALAN: countVowels("string") return 1;
 
-function findLongestWord(text: string) {
+function countVowels(str: string) {
+  let vowel_list = "aeiouAEIOU";
+  let vcount = 0;
 
-  const Text = text.split(" ");      // natija: [ 'I', 'come', 'from', 'Uzbekistan' ]
-  let longest = "";                  // empty string hosil qivolyapmiz
-
-  // for-loop ni iteration methodini iwga tuwiramiz
-  for (let i = 0; i < Text.length; i++) {
-
-    // agar "i"ning uzunligi longest text.ning uzunligidan katta bolsa "i"ni longestga tenglab olyapmiz 
-    if(Text[i].length > longest.length) {
-      longest = Text[i];
+  for(let i=0; i < str.length; i++) {
+    if(vowel_list.indexOf(str[i]) !== -1) {
+      vcount += 1; 
     }
   }
-  return longest;
+  return vcount;
 }
+const natija = countVowels("string");
+console.log("natija:", natija);
 
-console.log(findLongestWord("I come from Uzbekistan"));
+// // *** J - TASK ***
+// // Shunday function yozing, u string qabul qilsin va string ichidagi eng
+// // uzun sozni qaytarsin.
+// // MASALAN: findLongestWord("I come from Uzbekistan") return "Uzbekistan"
+
+// function findLongestWord(text: string) {
+
+//   const Text = text.split(" ");      // natija: [ 'I', 'come', 'from', 'Uzbekistan' ]
+//   let longest = "";                  // empty string hosil qivolyapmiz
+
+//   // for-loop ni iteration methodini iwga tuwiramiz
+//   for (let i = 0; i < Text.length; i++) {
+
+//     // agar "i"ning uzunligi longest text.ning uzunligidan katta bolsa "i"ni longestga tenglab olyapmiz 
+//     if(Text[i].length > longest.length) {
+//       longest = Text[i];
+//     }
+//   }
+//   return longest;
+// }
+
+// console.log(findLongestWord("I come from Uzbekistan"));
 
 
 
