@@ -11,7 +11,8 @@ console.log("Hello World");
   
 */
 
-/*
+/* API turlari:
+
   Traditinal Api
   Rest Api
   GraphQL Api
@@ -24,6 +25,13 @@ console.log("Hello World");
  * - Modern FD       => SPA  (users`)  => REACT libr.
  
  * **/ 
+
+/*
+  Cookie ni hislatlari:
+  
+  - request join,
+  - self destroy
+*/
 
 // *** J - TASK ***
 // Shunday function yozing, u string qabul qilsin va string ichidagi eng
