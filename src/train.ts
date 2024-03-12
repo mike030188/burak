@@ -33,24 +33,51 @@ console.log("Hello World");
   - self destroy
 */
 
-// *** K - TASK ***
-// Shunday function yozing, u string qabul qilsin va string ichidagi unli 
-// harflar sonini qaytarsin.
-// MASALAN: countVowels("string") return 1;
+// *** L - TASK ***
+// Shunday function yozing, u string qabul qilsin va string ichidagi 
+// hamma sozlarni chappasiga yozib va sozlar ketma-ketligini 
+// buzmasdan stringni qaytarsin.
+// MASALAN: reverseSentence("we like coding") return "ew ekil gnidoc";
 
-function countVowels(str: string) {
-  let vowel_list = "aeiouAEIOU";
-  let vcount = 0;
 
-  for(let i=0; i < str.length; i++) {
-    if(vowel_list.indexOf(str[i]) !== -1) {
-      vcount += 1; 
-    }
-  }
-  return vcount;
+function reverseSentence(sentence: string) {
+  // Split the sentence into an array of words
+  return sentence.split(' ')
+  // For each word, reverse the characters and join them back together
+  .map(arrayWord => arrayWord.split(''));
+  // .reverse().join(''))
+  // // Join the reversed words back together to form the final reversed sentence
+  // .join(' ');
 }
-const natija = countVowels("string");
+
+const origSentence = "we like coding";
+const natija = reverseSentence(origSentence);
+
 console.log("natija:", natija);
+
+
+
+
+
+
+// // *** K - TASK ***
+// // Shunday function yozing, u string qabul qilsin va string ichidagi unli 
+// // harflar sonini qaytarsin.
+// // MASALAN: countVowels("string") return 1;
+
+// function countVowels(str: string) {
+//   let vowel_list = "aeiouAEIOU";
+//   let vcount = 0;
+
+//   for(let i=0; i < str.length; i++) {
+//     if(vowel_list.indexOf(str[i]) !== -1) {
+//       vcount += 1; 
+//     }
+//   }
+//   return vcount;
+// }
+// const natija = countVowels("string");
+// console.log("natija:", natija);
 
 // // *** J - TASK ***
 // // Shunday function yozing, u string qabul qilsin va string ichidagi eng

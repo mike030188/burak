@@ -7,6 +7,7 @@ import router from "./router";
 
 import session from "express-session";
 import ConnectMongoDB from "connect-mongodb-session";
+import { T } from "./libs/types/common";
 
 const MongoDBStore = ConnectMongoDB(session);
 /** below codes coming from Documentation_connect-mongodb-session **/
@@ -36,6 +37,12 @@ app.use(
         saveUninitialized: true,
     })
 );
+
+app.use(function (req, res, next) {
+    const sessionInstance = req.session as T;
+    res.locals.member = sessionInstance.member;
+    next();
+  });
 
 
 
