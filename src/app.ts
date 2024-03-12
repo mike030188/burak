@@ -29,7 +29,7 @@ app.use(
     session({
         secret: String(process.env.SESSION_SECRET), // NOTE: secret code creates by ourself, except "#" symbol
         cookie: {
-            maxAge: 1000 * 3600 * 6, // cookies` lifetime (f.e: 6h) here
+            maxAge: 1000 * 30, // cookies` lifetime (f.e: 6h) here
         },
         store: store, // yuqorida 13-satrda korsatilgan
         resave: true, // 10:30 da auth => 13:30 gacha session saqlanadi, "true" holatida 12:00 => 15:00 gacha valid hisob, "false" => 12:00 => 13:30 da bekiladi  
