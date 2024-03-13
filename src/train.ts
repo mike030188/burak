@@ -33,6 +33,13 @@ console.log("Hello World");
   - self destroy
 */
 
+
+/** Validation:
+ * Frontend validation
+ * Backend validation
+ * Database validation
+ */
+
 // *** L - TASK ***
 // Shunday function yozing, u string qabul qilsin va string ichidagi 
 // hamma sozlarni chappasiga yozib va sozlar ketma-ketligini 
@@ -41,13 +48,9 @@ console.log("Hello World");
 
 
 function reverseSentence(sentence: string) {
-  // Split the sentence into an array of words
-  return sentence.split(' ')
-  // For each word, reverse the characters and join them back together
-  .map(arrayWord => arrayWord.split(''));
-  // .reverse().join(''))
-  // // Join the reversed words back together to form the final reversed sentence
-  // .join(' ');
+
+  return sentence.split(' ').map(arrayWord => arrayWord.split('').reverse().join('')).join(' ');
+  
 }
 
 const origSentence = "we like coding";
