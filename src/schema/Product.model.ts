@@ -39,15 +39,16 @@ const productSchema = new Schema({
     default: ProductSize.NORMAL
    },
 
+   // faqat ichimliklar un
    productVolume: {
-    type: String,
+    type: Number,
     enum: ProductVolume,
     default: ProductVolume.ONE
    },
 
    productDesc: {
     type: String,
-    required: true
+    // required: true   boliwi ham mukin bomasligi ham mumkin ota muhim emas
    },
 
    productImages: {
