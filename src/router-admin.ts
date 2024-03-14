@@ -14,7 +14,11 @@ routerAdmin
   .post("/login", restaurantController.processLogin);
 routerAdmin
   .get("/signup", restaurantController.getSignup)
-  .post("/signup", makeUploader('members').single('memberImage'), restaurantController.processSignup);
+  .post(
+    "/signup",
+    makeUploader("members").single("memberImage"),  // "single" => bu yerda aqat 1 tagacha rasm joylaw imkonini beryapti
+    restaurantController.processSignup
+  );
 
 routerAdmin.get("/logout", restaurantController.logout);
 
@@ -28,9 +32,9 @@ routerAdmin.get(
   productController.getAllProducts
 );
 routerAdmin.post(
-  "/product/create", 
-  restaurantController.verifyRestaurant, 
-  makeUploader('products').array('productImages', 5), // only 1 pic => single
+  "/product/create",
+  restaurantController.verifyRestaurant,    // reg.bolgan usergina image upload qila oladi
+  makeUploader("products").array("productImages", 5),  // "array" => bu yerda 5 tagacha rasm joylaw imkonini beryapti
   productController.createNewProduct
 );
 routerAdmin.post(

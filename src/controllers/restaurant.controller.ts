@@ -3,7 +3,7 @@ import { T } from "../libs/types/common";
 import MemberService from "../models/Member.service";
 import { LoginInput, MemberInput, AdminRequest} from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
-import Errors, { Message } from "../libs/Errors";
+import Errors, { HttpCode, Message } from "../libs/Errors";
 
 const memberService = new MemberService();
 
@@ -53,14 +53,22 @@ restaurantController.processSignup = async (req: AdminRequest, res: Response) =>
     console.log("processSignup");
   // console.log("body:", req.body);
   // res.send("DONE");
+    const file = req.file;
+    // console.log("file:", file);
+    // throw new Error("Forced Quit"); // 71 satr "err"ga yonaltiradi
+    /* signUp user Image yuklawini majburlash */
+    if(!file) throw new Errors(HttpCode.BAD_REQUEST, Message.SOMETHING_WENT_WRONG);
+
   const newMember: MemberInput = req.body;
+  newMember.memberImage = file?.path;
   newMember.memberType = MemberType.RESTAURANT;
   const result = await memberService.processSignup(newMember);
   // TODO: SESSIONS AUTHENTICATION
 
   req.session.member = result;
   req.session.save(function () {  // session success save bolgandan keyin bizning browser cookiesga "sid"ni joylaydi va...
-    res.send(result); // session collectionga "member-data (result)"ni borib joylaydi
+    // res.send(result); // session collectionga "member-data (result)"ni borib joylaydi
+    res.redirect("/admin/product/all");
   })
 
   // res.send(result); yuqoridagi session ichiga yubordik
@@ -84,7 +92,8 @@ restaurantController.processLogin = async (req: AdminRequest, res: Response) => 
     
     req.session.member = result;
     req.session.save(function () {  // session success save bolgandan keyin bizning browser cookiesga "sid"ni joylaydi va...
-      res.send(result); // session collectionga "member-data (result)"ni borib joylaydi
+      // res.send(result); // session collectionga "member-data (result)"ni borib joylaydi
+    res.redirect("/admin/product/all");
     })
 
       // res.send(result);

@@ -1,12 +1,17 @@
 import mongoose, {Schema} from "mongoose";
-import { ProductCollection, ProductSize, ProductStatus, ProductVolume } from "../libs/enums/product.enum";
+import { ProductCollection, 
+        ProductSize, 
+        ProductStatus, 
+        ProductVolume } from "../libs/enums/product.enum";
 
+        //DataBase validation
 const productSchema = new Schema({
    productStatus: {
     type: String,
     enum: ProductStatus,
     default: ProductStatus.PAUSE
    },
+
    productCollection: {
     type: String,
     enum: ProductCollection,
@@ -52,7 +57,7 @@ const productSchema = new Schema({
 
    productViews: {
     type: Number,
-    default: 0,
+    default: 0,  // qiymati "0"dan bowlansin
    }
 
 },
