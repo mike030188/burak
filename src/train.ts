@@ -40,23 +40,41 @@ console.log("Hello World");
  * Database validation
  */
 
-// *** L - TASK ***
-// Shunday function yozing, u string qabul qilsin va string ichidagi 
-// hamma sozlarni chappasiga yozib va sozlar ketma-ketligini 
-// buzmasdan stringni qaytarsin.
-// MASALAN: reverseSentence("we like coding") return "ew ekil gnidoc";
+// *** M - TASK ***
+// Shunday function yozing, u raqamlardan tashkil topgan array qabul qilsin
+// va array ichidagi har bir raqam uchun raqamni ozi va hamda osha raqamni kvadratidan tashkil topgan object hosil qilib,
+// hosil bolgan objectlarni array ichida qaytarsin.
+// MASALAN: getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1}, {number: 2, square: 4}, {number: 3, square: 9}];
 
+function getSquareNumbers(array: number[]){
+  let newArray = [];
 
-function reverseSentence(sentence: string) {
+  for(let i = 0; i < array.length; i++) {
+   newArray.push({number: array[i], square: array[i]*array[i]});
+  }
 
-  return sentence.split(' ').map(arrayWord => arrayWord.split('').reverse().join('')).join(' ');
-  
+  return newArray;
 }
 
-const origSentence = "we like coding";
-const natija = reverseSentence(origSentence);
+console.log(getSquareNumbers([1,2,3]));
 
-console.log("natija:", natija);
+// // *** L - TASK ***
+// // Shunday function yozing, u string qabul qilsin va string ichidagi 
+// // hamma sozlarni chappasiga yozib va sozlar ketma-ketligini 
+// // buzmasdan stringni qaytarsin.
+// // MASALAN: reverseSentence("we like coding") return "ew ekil gnidoc";
+
+
+// function reverseSentence(sentence: string) {
+
+//   return sentence.split(' ').map(arrayWord => arrayWord.split('').reverse().join('')).join(' ');
+  
+// }
+
+// const origSentence = "we like coding";
+// const natija = reverseSentence(origSentence);
+
+// console.log("natija:", natija);
 
 
 
