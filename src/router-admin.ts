@@ -44,9 +44,16 @@ routerAdmin.post(
 );
 
 /** User (Admin User memberlar ustidan kontrol qila oladigan...) */
-routerAdmin.get("/user/all", restaurantController.verifyRestaurant, restaurantController.getUsers)
-
-
+routerAdmin.get(
+  "/user/all",
+  restaurantController.verifyRestaurant,
+  restaurantController.getUsers
+);
+routerAdmin.post(
+  "/user/edit",
+  restaurantController.verifyRestaurant,
+  restaurantController.updateChosenUser
+);
 
 
 // "ES2020" orqali 
