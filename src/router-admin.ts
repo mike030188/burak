@@ -43,7 +43,8 @@ routerAdmin.post(
   productController.updateChosenProduct
 );
 
-/** User */
+/** User (Admin User memberlar ustidan kontrol qila oladigan...) */
+routerAdmin.get("/user/all", restaurantController.verifyRestaurant, restaurantController.getUsers)
 
 
 

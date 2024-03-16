@@ -1,7 +1,7 @@
 import MemberModel from "../schema/Member.model";
 import { LoginInput, Member, MemberInput } from "../libs/types/member";
 import Errors, { HttpCode, Message } from "../libs/Errors";
-import { MemberType } from "../libs/enums/member.enum";
+import { MemberType } from '../libs/enums/member.enum';
 import * as bcrypt from "bcryptjs"; // * as => importing all exports from the "bcryptjs" module and assigning them to the variable bcrypt
 
 /* Service Models doim "class" lar orqali yasaladi */
@@ -112,11 +112,19 @@ class MemberService {
         // return result;
 
         /** yuqoridagi kodni bu yerda togridan togri return qiliw**/
-        return await this.memberModel.findById(member._id).exec();        
-
-
-
+        return await this.memberModel.findById(member._id).exec();
       }
+
+      public async getUsers(): Promise<Member[]> {
+        const result = await this.memberModel
+        .find({ memberType: MemberType.USER })
+        .exec();
+
+        if(!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
+        return result;
+      }
+
 }
 
 export default MemberService;

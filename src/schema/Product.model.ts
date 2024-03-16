@@ -1,73 +1,74 @@
-import mongoose, {Schema} from "mongoose";
-import { ProductCollection, 
-        ProductSize, 
-        ProductStatus, 
-        ProductVolume } from "../libs/enums/product.enum";
+import mongoose, { Schema } from "mongoose";
+import {
+  ProductCollection,
+  ProductSize,
+  ProductStatus,
+  ProductVolume,
+} from "../libs/enums/product.enum";
 
-        //DataBase validation
-const productSchema = new Schema({
-   productStatus: {
-    type: String,
-    enum: ProductStatus,
-    default: ProductStatus.PAUSE
-   },
+//DataBase validation
 
-   productCollection: {
-    type: String,
-    enum: ProductCollection,
-    required: true,
-   },
+const productSchema = new Schema(
+  {
+    productStatus: {
+      type: String,
+      enum: ProductStatus,
+      default: ProductStatus.PAUSE,
+    },
 
-   productName: {
-    type: String,
-    required: true,
-   },
+    productCollection: {
+      type: String,
+      enum: ProductCollection,
+      required: true,
+    },
 
-   productPrice: {
-    type: Number,
-    required: true
-   },
+    productName: {
+      type: String,
+      required: true,
+    },
 
-   productLeftCount: {
-    type: Number,
-    required: true,
-   },
+    productPrice: {
+      type: Number,
+      required: true,
+    },
 
-   productSize: {
-    type: String,
-    enum: ProductSize,
-    default: ProductSize.NORMAL
-   },
+    productLeftCount: {
+      type: Number,
+      required: true,
+    },
 
-   // faqat ichimliklar un
-   productVolume: {
-    type: Number,
-    enum: ProductVolume,
-    default: ProductVolume.ONE
-   },
+    productSize: {
+      type: String,
+      enum: ProductSize,
+      default: ProductSize.NORMAL,
+    },
+    // faqat ichimliklar un
+    productVolume: {
+      type: String,
+      enum: ProductVolume,
+      default: ProductVolume.ONE,
+    },
 
-   productDesc: {
-    type: String,
-    // required: true   boliwi ham mukin bomasligi ham mumkin ota muhim emas
-   },
+    productDesc: {
+      type: String,
+      // required: true,    boliwi ham mukin bomasligi ham mumkin ota muhim emas
+    },
 
-   productImages: {
-     type: [String],
-     default: [],
-   },
+    productImages: {
+      type: [String],
+      default: [],
+    },
 
-   productViews: {
-    type: Number,
-    default: 0,  // qiymati "0"dan bowlansin
-   }
-
-},
-  {timestamps: true} // updatedAt, createdAt
+    productViews: {
+      type: Number,
+      default: 0, // qiymati "0"dan bowlansin
+    },
+  },
+  { timestamps: true } // updatedAt, createdAt
 );
 
 productSchema.index(
-    {producName: 1, productSize: 1, productVolume: 1},
-    {unique: true}
-)
-
-export default mongoose.model('Product', productSchema);
+  { productName: 1, productSize: 1, productVolume: 1 },
+  { unique: true }
+);
+export default mongoose.model("Product", productSchema);
