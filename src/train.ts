@@ -40,23 +40,48 @@ console.log("Hello World");
  * Database validation
  */
 
-// *** M - TASK ***
-// Shunday function yozing, u raqamlardan tashkil topgan array qabul qilsin
-// va array ichidagi har bir raqam uchun raqamni ozi va hamda osha raqamni kvadratidan tashkil topgan object hosil qilib,
-// hosil bolgan objectlarni array ichida qaytarsin.
-// MASALAN: getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1}, {number: 2, square: 4}, {number: 3, square: 9}];
 
-function getSquareNumbers(array: number[]){
-  let newArray = [];
+// *** N - TASK ***
 
-  for(let i = 0; i < array.length; i++) {
-   newArray.push({number: array[i], square: array[i]*array[i]});
-  }
+// Shunday function yozing, u string qabul qilsin va string palindrom yani togri oqilganda ham,
+// orqasidan oqilganda ham bir hil oqiladigan soz ekanligini aniqlab boolean qiymat qaytarsin.
+// MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false;
+// *** A palindrome is a value that reads the same from backward or forward.
 
-  return newArray;
+function palindromCheck(str: string) {
+  let revText = str.split("").reverse().join("");
+
+  if(revText === str) {
+    return true
+  }  return false;
 }
 
-console.log(getSquareNumbers([1,2,3]));
+let str1 = "dad";
+let str2 = "son";
+
+console.log("natija1:", palindromCheck(str1));
+console.log("natija2:", palindromCheck(str2));
+
+
+
+
+// // *** M - TASK ***
+// // Shunday function yozing, u raqamlardan tashkil topgan array qabul qilsin
+// // va array ichidagi har bir raqam uchun raqamni ozi va hamda osha raqamni kvadratidan tashkil topgan object hosil qilib,
+// // hosil bolgan objectlarni array ichida qaytarsin.
+// // MASALAN: getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1}, {number: 2, square: 4}, {number: 3, square: 9}];
+
+// function getSquareNumbers(array: number[]){
+//   let newArray = [];
+
+//   for(let i = 0; i < array.length; i++) {
+//    newArray.push({number: array[i], square: array[i]*array[i]});
+//   }
+
+//   return newArray;
+// }
+
+// console.log(getSquareNumbers([1,2,3]));
 
 // // *** L - TASK ***
 // // Shunday function yozing, u string qabul qilsin va string ichidagi 
