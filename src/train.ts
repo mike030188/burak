@@ -13,8 +13,8 @@ console.log("Hello World");
 
 /* API turlari:
 
-  Traditinal Api
-  Rest Api
+  Traditinal Api (form POST) 
+  Rest Api => frtEnd - BackEnd (data_JSON)
   GraphQL Api
   ...
 */
