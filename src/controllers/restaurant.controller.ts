@@ -51,7 +51,7 @@ restaurantController.getLogin = (req: Request, res:Response) => {
 restaurantController.processSignup = async (req: AdminRequest, res: Response) => {
   try {
     console.log("processSignup");
-  // console.log("body:", req.body);
+  console.log("body:", req.body);
   // res.send("DONE");
     const file = req.file;
     // console.log("file:", file);

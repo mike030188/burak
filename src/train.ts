@@ -41,26 +41,39 @@ console.log("Hello World");
  */
 
 
-// *** N - TASK ***
+// *** O - TASK ***
+// Shunday function yozing, u har xil valuelardan iborat array qabul qilsin
+// va array ichidagi sonlar yigindisini hisoblab chiqqan javobni qaytarsin.
+// MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]) return 45
 
-// Shunday function yozing, u string qabul qilsin va string palindrom yani togri oqilganda ham,
-// orqasidan oqilganda ham bir hil oqiladigan soz ekanligini aniqlab boolean qiymat qaytarsin.
-// MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false;
-// *** A palindrome is a value that reads the same from backward or forward.
 
-function palindromCheck(str: string) {
-  let revText = str.split("").reverse().join("");
 
-  if(revText === str) {
-    return true
-  }  return false;
-}
 
-let str1 = "dad";
-let str2 = "son";
 
-console.log("natija1:", palindromCheck(str1));
-console.log("natija2:", palindromCheck(str2));
+
+ 
+
+
+// // *** N - TASK ***
+
+// // Shunday function yozing, u string qabul qilsin va string palindrom yani togri oqilganda ham,
+// // orqasidan oqilganda ham bir hil oqiladigan soz ekanligini aniqlab boolean qiymat qaytarsin.
+// // MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false;
+// // *** A palindrome is a value that reads the same from backward or forward.
+
+// function palindromCheck(str: string) {
+//   let revText = str.split("").reverse().join("");
+
+//   if(revText === str) {
+//     return true
+//   }  return false;
+// }
+
+// let str1 = "dad";
+// let str2 = "son";
+
+// console.log("natija1:", palindromCheck(str1));
+// console.log("natija2:", palindromCheck(str2));
 
 
 
