@@ -46,10 +46,23 @@ console.log("Hello World");
 // va array ichidagi sonlar yigindisini hisoblab chiqqan javobni qaytarsin.
 // MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]) return 45
 
+function calculateSumOfNumbers(array: any[]): number {
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (typeof array[i] === "number") {
+      sum += array[i];
+      // quyidagi mantiq ma'lum bir elementning son emasligini aniqlaydi.
+    } else if (typeof array[i] !== "string" && !isNaN(parseFloat(array[i]))) {
+      sum += parseFloat(array[i]);
+    }
+  }
+  return sum;
+}
 
+const array_list = [10, "10", {son: 10}, true, 35];
+const result = calculateSumOfNumbers(array_list);
 
-
-
+console.log(result);
 
  
 
