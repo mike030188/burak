@@ -33,7 +33,8 @@ productController.getAllProducts = async (req: Request, res: Response) => {
 productController.createNewProduct = async (req: AdminRequest, res: Response) => {
   try {
     console.log("createNewProduct");
-    console.log("req.file:", req.files); // bir nechta rasm un "files"
+    // console.log("req.file:", req.files); // bir nechta rasm un "files"
+    // console.log("req.body:", req.body); // bunda publishing qanday data.larni tayyorlayotganini koriw
 
     /* Kamida 1ta rasm yuklagan boliwi kk */
     if(!req.files?.length) 
@@ -50,7 +51,7 @@ productController.createNewProduct = async (req: AdminRequest, res: Response) =>
 /*** CALL qismi...*/
     await productService.createNewProduct(data);
     res.send(
-      `<script> alert("Sucessful creation!"); window.location.replace('admin/product/all') </script>`
+      `<script> alert("Sucessful creation!"); window.location.replace('/admin/product/all') </script>`
     );
 
     // res.send("DONE!");
@@ -59,7 +60,7 @@ productController.createNewProduct = async (req: AdminRequest, res: Response) =>
     const message =
       err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
     res.send(
-      `<script> alert("${message}"); window.location.replace('admin/product/all') </script>`
+      `<script> alert("${message}"); window.location.replace('/admin/product/all') </script>`
     );
   }
 };
