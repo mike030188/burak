@@ -1,7 +1,7 @@
 console.log("Products frontend javascript file");
 
 
-// doc.ready syntax foydalanib........
+// *** doc.ready syntax foydalanib...***
 $(function () {
     $(".product-collection").on("change", () => {
       const selectedValue = $(".product-collection").val(); // class => "."
@@ -14,6 +14,7 @@ $(function () {
       }
     });
 
+    // *** add new product display:none ***
     $("#process-btn").on("click", () => {
         $(".dish-container").slideToggle(500);
         $("#process-btn").css("display", "none");
@@ -22,6 +23,29 @@ $(function () {
       $("#cancel-btn").on("click", () => {
         $(".dish-container").slideToggle(100);
         $("#process-btn").css("display", "flex");
+      });
+
+      // *** update chosen product status ***
+      $(".new-product-status").on("change", async function (e) {
+        const id = e.target.id;
+        const productStatus = $(`#${id}.new-product-status`).val();
+        console.log("id:", id);
+        console.log("productStatus:", productStatus);
+    
+        try {
+          const response = await axios.post(`/admin/product/${id}`, {
+            productStatus: productStatus,
+          });
+          console.log("response:", response);
+          const result = response.data;
+          if (result.data) {
+            console.log("Product updated!");
+            $(".new-product-status").blur();
+          } else alert("Product update failed!");
+        } catch (err) {
+          console.log(err);
+          alert("Product update failed!");
+        }
       });
 });
 
@@ -46,7 +70,7 @@ function validateForm() {
     } else return true;
   }
 
-  // Img - yuklangan files preview qilish
+  // *** Img - yuklangan files preview qilish ***
   function previewFileHandler(input, order) {
     const imgClassName = input.className;
     console.log("input:", input); // frtend-console-input malumotlarni korish mumkin
