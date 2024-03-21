@@ -29,8 +29,8 @@ $(function () {
       $(".new-product-status").on("change", async function (e) {
         const id = e.target.id;
         const productStatus = $(`#${id}.new-product-status`).val();
-        console.log("id:", id);
-        console.log("productStatus:", productStatus);
+        // console.log("id:", id);
+        // console.log("productStatus:", productStatus);
     
         try {
           const response = await axios.post(`/admin/product/${id}`, {
@@ -39,7 +39,7 @@ $(function () {
           console.log("response:", response);
           const result = response.data;
           if (result.data) {
-            console.log("Product updated!");
+            // console.log("Product updated!");
             $(".new-product-status").blur();
           } else alert("Product update failed!");
         } catch (err) {
@@ -50,12 +50,12 @@ $(function () {
 });
 
 function validateForm() {
-    const productName = $(".product-name").val();
-    const productPrice = $(".product-price").val();
-    const productLeftCount = $(".product-left-count").val();
-    const productCollection = $(".product-collection").val();
-    const productDesc = $(".product-desc").val();
-    const productStatus = $(".product-status").val();
+    const productName = $(".product-name").val(),
+     productPrice = $(".product-price").val(),
+     productLeftCount = $(".product-left-count").val(),
+     productCollection = $(".product-collection").val(),
+     productDesc = $(".product-desc").val(),
+     productStatus = $(".product-status").val();
   
     if (
       productName === "" ||
@@ -76,9 +76,9 @@ function validateForm() {
     console.log("input:", input); // frtend-console-input malumotlarni korish mumkin
     // console.log("imgClassName:", imgClassName);
 
-    const file = $(`.${imgClassName}`).get(0).files[0];
-    const fileType = file["type"];
-    const validImageType = ["image/jpg", "image/jpeg", "image/png"];
+    const file = $(`.${imgClassName}`).get(0).files[0],
+     fileType = file["type"],
+     validImageType = ["image/jpg", "image/jpeg", "image/png"];
 
     if (!validImageType.includes(fileType)) {
         alert("Please insert only jpeg, jpg and png!");
