@@ -39,6 +39,8 @@ memberController.signup = async (req: Request, res: Response) => {
       } catch (err) {
         console.log("Error, login:", err);
         // res.json({});
+        if (err instanceof Errors) res.status(err.code).json(err);
+      else res.status(Errors.standard.code).json(Errors.standard);
       }
     };
 
