@@ -40,17 +40,31 @@ console.log("Hello World");
  * Database validation
  */
 
-// *** P - TASK ***
-// Shunday function yozing, u object qabul qilsin va
-// arrayni object arrayga otkazib arrayni qaytarsin.
-// MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
-
-function objectToArray( obj: any) {
-  return Object.entries(obj) // Returns an array of key/values of the enumerable properties of an object
+// *** Q - TASK ***
+// Shunday function yozing, u 2 ta parametrgga ega bolib birinchisi object, ikkinchisi string. 
+// Agar string parametr objectni propertysi bolsa true bolmasa false qaytarsin.
+// MASALAN: hasProperty({name: "BMW", model: "M3"}, "model") 
+// return true; hasProperty({name: "BMW", model: "M3"}, "year") return false
+function hasProperty(obj: any, str: string) {
+  return obj.hasOwnProperty(str);
 }
 
-const natija = objectToArray( {a: 10, b: 20});
-console.log("natija:", natija);
+console.log(hasProperty({name: "BMW", model: "M3"}, "model"));
+console.log(hasProperty({name: "BMW", model: "M3"}, "year"));
+
+
+
+// // *** P - TASK ***
+// // Shunday function yozing, u object qabul qilsin va
+// // arrayni object arrayga otkazib arrayni qaytarsin.
+// // MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
+
+// function objectToArray( obj: any) {
+//   return Object.entries(obj) // Returns an array of key/values of the enumerable properties of an object
+// }
+
+// const natija = objectToArray( {a: 10, b: 20});
+// console.log("natija:", natija);
 
 // // *** O - TASK ***
 // // Shunday function yozing, u har xil valuelardan iborat array qabul qilsin
