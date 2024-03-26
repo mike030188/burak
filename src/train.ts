@@ -40,17 +40,38 @@ console.log("Hello World");
  * Database validation
  */
 
-// *** Q - TASK ***
-// Shunday function yozing, u 2 ta parametrgga ega bolib birinchisi object, ikkinchisi string. 
-// Agar string parametr objectni propertysi bolsa true bolmasa false qaytarsin.
-// MASALAN: hasProperty({name: "BMW", model: "M3"}, "model") 
-// return true; hasProperty({name: "BMW", model: "M3"}, "year") return false
-function hasProperty(obj: any, str: string) {
-  return obj.hasOwnProperty(str);
+
+// *** R - TASK ***
+// Shunday function yozing, u string parametrga ega bolsin.
+// String "1+2" holatda pass qilinganda string ichidagi sonlar yigindisini number holatda qaytarsin.
+// MASALAN: calculate("1+3") return 4;
+
+function calculate(str: string) {
+  // '+' belgisi orqali stringni bo'lib alohida qilamiz
+  const parts = str.split('+');
+
+  // Har bir qiymatni raqamga keltirib, ularni yig'indisini hisoblaymiz
+  const sum = parts.reduce((acc, val) => acc + parseInt(val), 0);
+
+  // return parts;
+  return sum; 
+
 }
 
-console.log(hasProperty({name: "BMW", model: "M3"}, "model"));
-console.log(hasProperty({name: "BMW", model: "M3"}, "year"));
+console.log(calculate("1+3"));
+
+
+// // *** Q - TASK ***
+// // Shunday function yozing, u 2 ta parametrgga ega bolib birinchisi object, ikkinchisi string. 
+// // Agar string parametr objectni propertysi bolsa true bolmasa false qaytarsin.
+// // MASALAN: hasProperty({name: "BMW", model: "M3"}, "model") 
+// // return true; hasProperty({name: "BMW", model: "M3"}, "year") return false
+// function hasProperty(obj: any, str: string) {
+//   return obj.hasOwnProperty(str);
+// }
+
+// console.log(hasProperty({name: "BMW", model: "M3"}, "model"));
+// console.log(hasProperty({name: "BMW", model: "M3"}, "year"));
 
 
 
