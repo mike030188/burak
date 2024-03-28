@@ -40,25 +40,37 @@ console.log("Hello World");
  * Database validation
  */
 
-
-// *** R - TASK ***
-// Shunday function yozing, u string parametrga ega bolsin.
-// String "1+2" holatda pass qilinganda string ichidagi sonlar yigindisini number holatda qaytarsin.
-// MASALAN: calculate("1+3") return 4;
-
-function calculate(str: string) {
-  // '+' belgisi orqali stringni bo'lib alohida qilamiz
-  const parts = str.split('+');
-
-  // Har bir qiymatni raqamga keltirib, ularni yig'indisini hisoblaymiz
-  const sum = parts.reduce((acc, val) => acc + parseInt(val), 0);
-
-  // return parts;
-  return sum; 
-
+// *** S - TASK ***
+// Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin
+// va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
+// MASALAN: missingNumber([3, 0, 1]) return 2
+function missingNumber(arr: any, n: number) {
+  let missingNumber = [];
+  for (let i = 1; i <= n; i++) if (!arr.includes(i)) missingNumber.push(i);
+  return missingNumber;
 }
+console.log(missingNumber([3, 0, 1], 3));
 
-console.log(calculate("1+3"));
+
+
+// // *** R - TASK ***
+// // Shunday function yozing, u string parametrga ega bolsin.
+// // String "1+2" holatda pass qilinganda string ichidagi sonlar yigindisini number holatda qaytarsin.
+// // MASALAN: calculate("1+3") return 4;
+
+// function calculate(str: string) {
+//   // '+' belgisi orqali stringni bo'lib alohida qilamiz
+//   const parts = str.split('+');
+
+//   // Har bir qiymatni raqamga keltirib, ularni yig'indisini hisoblaymiz
+//   const sum = parts.reduce((acc, val) => acc + parseInt(val), 0);
+
+//   // return parts;
+//   return sum; 
+
+// }
+
+// console.log(calculate("1+3"));
 
 
 // // *** Q - TASK ***
